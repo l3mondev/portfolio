@@ -1,0 +1,62 @@
+name: 'PR Labeler'
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@v4
+
+      - name: 'Debug: show PR title'
+        run: |
+          echo "PR title: ${{ github.event.pull_request.title }}"
+
+      - name: 'Apply Conventional Commits labels by PR title'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = (context.payload.pull_request && context.payload.pull_request.title) || '';
+            const prNumber = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            // pobierz listę istniejących etykiet w repo
+            const repoLabelsResp = await github.rest.issues.listLabelsForRepo({ owner, repo, per_page: 100 });
+            const repoLabels = repoLabelsResp.data.map(l => l.name);
+            console.log('Repo labels:', repoLabels);
+
+            // mapowanie Conventional Commits -> etykiety
+            const mappings = [
+              { label: 'feat', regex: /^(?:feat(?::|\(|\b))/i },
+              { label: 'fix', regex: /^(?:fix(?::|\(|\b))/i },
+              { label: 'chore', regex: /^(?:chore|build|ci|docs|refactor|style|test)(?::|\(|\b)/i }
+            ];
+
+            console.log(`PR title: "${title}"`);
+            for (const m of mappings) {
+              if (m.regex.test(title)) {
+                if (!repoLabels.includes(m.label)) {
+                  console.log(`Label "${m.label}" not found in repo — skipping (won't create).`);
+                  return;
+                }
+                console.log(`Matched "${m.label}", adding to PR #${prNumber}`);
+                await github.rest.issues.addLabels({
+                  owner,
+                  repo,
+                  issue_number: prNumber,
+                  labels: [m.label]
+                });
+                return;
+              }
+            }
+            console.log('No matching label mapping found for this title.');

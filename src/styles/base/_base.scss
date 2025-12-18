@@ -1,0 +1,32 @@
+// Import the normalizer at the very top.
+@import 'modern-normalize/modern-normalize.css';
+
+// The box-sizing reset is an absolute standard for modern CSS.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Base styles for the entire page.
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Responsive images by default.
+img,
+video,
+svg {
+  max-width: 100%;
+  height: auto;
+}
