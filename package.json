@@ -22,7 +22,9 @@
     "format:check": "prettier --check .",
     "lint-staged": "lint-staged",
     "test:unit": "vitest",
-    "test": "npm run test:unit -- --run --passWithNoTests && npm run test:e2e"
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test": "pnpm run test:unit -- --run && pnpm run test:e2e"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^7.0.0",
