@@ -7,46 +7,45 @@ import svelteParser from 'svelte-eslint-parser';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-	js.configs.recommended,
-	...sveltePlugin.configs['flat/recommended'],
-	{
-		files: ['**/*.{js,mjs,cjs,ts}'],
-		languageOptions: {
-			parser: tsParser,
-			parserOptions: {
-				ecmaVersion: 'latest',
-				sourceType: 'module'
-			}
-		},
-		plugins: {
-			'@typescript-eslint': tsPlugin
-		},
-		rules: {
-			...tsPlugin.configs.recommended.rules,
-			'@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
-		}
-	},
-	{
-		files: ['**/*.svelte'],
-		languageOptions: {
-			parser: svelteParser,
-			parserOptions: {
-				parser: tsParser
-			}
-		}
-	},
-	{
-		ignores: [
-			'**/build/**',
-			'**/.svelte-kit/**',
-			'**/node_modules/**',
-			'**/dist/**',
-			'**/.vercel/**',
-			'**/coverage/**',
-			'**/playwright-report/**',
-			'**/test-results/**'
-		]
-	},
-	prettier
+  js.configs.recommended,
+  ...sveltePlugin.configs['flat/recommended'],
+  {
+    files: ['**/*.{js,mjs,cjs,ts}'],
+    languageOptions: {
+      parser: tsParser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+      },
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+    rules: {
+      ...tsPlugin.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
+  },
+  {
+    files: ['**/*.svelte'],
+    languageOptions: {
+      parser: svelteParser,
+      parserOptions: {
+        parser: tsParser,
+      },
+    },
+  },
+  {
+    ignores: [
+      '**/build/**',
+      '**/.svelte-kit/**',
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/.vercel/**',
+      '**/coverage/**',
+      '**/playwright-report/**',
+      '**/test-results/**',
+    ],
+  },
+  prettier,
 ];
-
