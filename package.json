@@ -20,7 +20,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "test:unit": "vitest",
+    "test": "npm run test:unit -- --run --passWithNoTests && npm run test:e2e"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^7.0.0",
@@ -34,15 +36,18 @@
     "eslint-plugin-svelte": "^2.36.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@playwright/test": "^1.48.0",
     "husky": "^9.1.0",
     "lint-staged": "^15.2.0",
     "prettier": "^3.3.0",
     "prettier-plugin-svelte": "^3.2.0",
+    "@vitest/browser": "^3.2.3",
     "svelte": "^5.45.6",
     "svelte-check": "^4.3.4",
     "svelte-eslint-parser": "^1.4.1",
     "typescript": "^5.9.3",
-    "vite": "^7.2.6"
+    "vite": "^7.2.6",
+    "vitest": "^3.2.3"
   },
   "lint-staged": {
     "*.{js,ts,svelte}": [
