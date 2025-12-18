@@ -9,7 +9,7 @@
   },
   "scripts": {
     "predev": "fuser -k 5176/tcp || true",
-    "dev": "vite dev",
+    "dev": "vite dev --host --port 5176",
     "build": "vite build",
     "preview": "vite preview",
     "prepare": "husky install",
