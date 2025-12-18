@@ -1,0 +1,10 @@
+build
+.svelte-kit
+node_modules
+dist
+.vercel
+coverage
+playwright-report
+test-results
+pnpm-lock.yaml
+
