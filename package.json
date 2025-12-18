@@ -9,9 +9,10 @@
   },
   "scripts": {
     "predev": "fuser -k 5176/tcp || true",
-    "dev": "vite dev",
+    "dev": "vite dev --host --port 5176",
     "build": "vite build",
-    "preview": "vite preview",
+    "prepreview": "fuser -k 5176/tcp || true",
+    "preview": "vite preview --host --port 5176",
     "prepare": "husky install",
     "postinstall": "svelte-kit sync",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

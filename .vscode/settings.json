@@ -1,0 +1,23 @@
+{
+  "__note": "VS Code settings for SvelteKit + TypeScript + Prettier",
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "svelte"],
+
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  "svelte.enable-ts-plugin": true,
+  "typescript.tsserver.experimental.enableProjectDiagnostics": true
+}
