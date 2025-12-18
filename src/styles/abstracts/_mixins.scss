@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+/// Responsive media query mixin (mobile-first).
+/// @param {String} $key - The breakpoint key from the $breakpoints map (e.g., 'md').
+/// @content The block of styles to apply.
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$key}' not found in the $breakpoints map.";
+  }
+}

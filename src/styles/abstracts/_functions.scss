@@ -1,0 +1,12 @@
+@use 'variables' as *;
+@use 'sass:map';
+
+/// Safely retrieves a color value from the global $colors map.
+/// Allows accessing nested color values.
+/// @param {String...} $keys - The path to the color key (e.g., 'text', 'secondary').
+/// @return {Color} The color value from the map.
+/// @example
+///   color: color('text', 'secondary');
+@function color($keys...) {
+  @return map.get($colors, $keys...);
+}

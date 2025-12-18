@@ -1,0 +1,98 @@
+:root {
+  // 1. Color Palette
+  // Brand colors
+  --color-primary: #09355d; // Granat - główny kolor brandu
+  --color-primary-light: #0f4a7a; // Lighter variant for hover states
+  --color-primary-dark: #062640; // Darker variant for active states
+  --color-accent: #f59e0b; // Złoty - akcent
+  --color-accent-light: #fbbf24; // Lighter gold for hover
+  --color-accent-dark: #d97706; // Darker gold for active states
+
+  // Text colors
+  --color-text: #1e293b; // Slate 800 - główny tekst
+  --color-text-secondary: #64748b; // Slate 500 - tekst pomocniczy
+  --color-text-muted: #94a3b8; // Slate 400 - tekst wyciszony
+
+  // Background colors
+  --color-background: #ffffff;
+  --color-surface: #f8fafc; // Slate 50 - tło dla kart, sekcji
+  --color-surface-hover: #f1f5f9; // Slate 100 - hover state
+  --color-border: #e2e8f0; // Slate 200 - obramowania
+
+  // 2. Typography
+  --font-family-sans:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  --font-family-serif: 'Georgia', serif;
+  --font-family-mono: 'Fira Mono', 'Courier New', monospace;
+
+  // Font weights
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  // Font sizes (mobile-first, Perfect Fourth scale)
+  --font-size-base: 16px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+
+  // Line heights
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.6;
+  --line-height-base: var(--line-height-relaxed);
+
+  // 3. Spacing Scale (in px)
+  --spacing-1: 4px;
+  --spacing-2: 8px;
+  --spacing-3: 12px;
+  --spacing-4: 16px;
+  --spacing-5: 24px;
+  --spacing-6: 32px;
+  --spacing-7: 48px;
+  --spacing-8: 64px;
+
+  // 4. Other UI values
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --transition-duration: 200ms;
+}
+
+// SASS map for colors (useful for mixins/functions)
+$colors: (
+  'primary': (
+    'base': var(--color-primary),
+    'light': var(--color-primary-light),
+    'dark': var(--color-primary-dark),
+  ),
+  'accent': (
+    'base': var(--color-accent),
+    'light': var(--color-accent-light),
+    'dark': var(--color-accent-dark),
+  ),
+  'text': (
+    'base': var(--color-text),
+    'secondary': var(--color-text-secondary),
+    'muted': var(--color-text-muted),
+  ),
+  'background': var(--color-background),
+  'surface': (
+    'base': var(--color-surface),
+    'hover': var(--color-surface-hover),
+  ),
+  'border': var(--color-border),
+);
+
+// Breakpoints map for SASS mixins
+$breakpoints: (
+  'sm': 640px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);

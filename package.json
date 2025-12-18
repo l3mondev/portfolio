@@ -47,6 +47,7 @@
     "svelte": "^5.45.6",
     "svelte-check": "^4.3.4",
     "svelte-eslint-parser": "^1.4.1",
+    "modern-normalize": "^3.0.1",
     "typescript": "^5.9.3",
     "vite": "^7.2.6",
     "vitest": "^3.2.3"
