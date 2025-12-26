@@ -5,6 +5,7 @@ h4,
 h5,
 h6 {
   margin: 0 0 var(--spacing-3) 0;
+  font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   color: var(--color-text);
@@ -12,7 +13,7 @@ h6 {
 
 // Typographic scale (Perfect Fourth - 1.333 ratio)
 h1 {
-  font-size: var(--font-size-4xl); // 36px
+  font-size: var(--font-size-3xl); // 36px
   font-weight: var(--font-weight-bold); // 700
 }
 h2 {
@@ -62,4 +63,10 @@ a {
     color: var(--color-primary-light);
     text-decoration: underline;
   }
+}
+
+// Buttons use Plus Jakarta Sans (body font)
+button,
+.btn {
+  font-family: var(--font-family-body);
 }

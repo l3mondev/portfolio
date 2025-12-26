@@ -11,8 +11,7 @@
     "predev": "fuser -k 5176/tcp || true",
     "dev": "vite dev --host --port 5176",
     "build": "vite build",
-    "prepreview": "fuser -k 5176/tcp || true",
-    "preview": "vite preview --host --port 5176",
+    "preview": "vite preview",
     "prepare": "husky install",
     "postinstall": "svelte-kit sync",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -30,28 +29,28 @@
     "test:all": "pnpm run check && pnpm run lint && pnpm run test:unit && pnpm run test:e2e && pnpm run build"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@eslint/js": "^9.0.0",
-    "@playwright/test": "^1.48.0",
     "@sveltejs/adapter-vercel": "^5.1.0",
     "@sveltejs/kit": "^2.49.1",
     "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@eslint/js": "^9.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
-    "@vitest/browser": "^3.2.3",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.36.0",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@playwright/test": "^1.48.0",
     "husky": "^9.1.0",
     "lint-staged": "^15.2.0",
-    "modern-normalize": "^3.0.1",
     "prettier": "^3.3.0",
     "prettier-plugin-svelte": "^3.2.0",
+    "@vitest/browser": "^3.2.3",
     "sass": "^1.83.0",
     "svelte": "^5.45.6",
     "svelte-check": "^4.3.4",
     "svelte-eslint-parser": "^1.4.1",
+    "modern-normalize": "^3.0.1",
     "typescript": "^5.9.3",
     "vite": "^7.2.6",
     "vitest": "^3.2.3"
@@ -65,7 +64,6 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "@parcel/watcher",
       "esbuild"
     ]
   }

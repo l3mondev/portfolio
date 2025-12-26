@@ -1,36 +1,119 @@
-:root {
-  // 1. Color Palette
-  // Brand colors
-  --color-primary: #09355d; // Granat - główny kolor brandu
-  --color-primary-light: #0f4a7a; // Lighter variant for hover states
-  --color-primary-dark: #062640; // Darker variant for active states
-  --color-accent: #f59e0b; // Złoty - akcent
-  --color-accent-light: #fbbf24; // Lighter gold for hover
-  --color-accent-dark: #d97706; // Darker gold for active states
+// ═══════════════════════════════════════════════════════════
+// SASS Variables (for functions, mixins, and compile-time operations)
+// ═══════════════════════════════════════════════════════════
 
-  // Text colors
-  --color-text: #1e293b; // Slate 800 - główny tekst
-  --color-text-secondary: #64748b; // Slate 500 - tekst pomocniczy
-  --color-text-muted: #94a3b8; // Slate 400 - tekst wyciszony
+// 1. Color Palette - Black & Gold (WCAG AAA)
+// Primary (Black) - for text and logo
+$color-primary: #0a0a0a; // Main black (19.4:1 on white) ✓ AAA
+$color-primary-light: #404040; // Lighter for hover (9.7:1 on white) ✓ AAA
+$color-primary-dark: #000000; // Pure black for emphasis (21:1 on white) ✓ AAA
+
+// Accent (Gold/Orange) - for UI elements and highlights
+$color-accent: #f59e0b; // Gold - UI buttons, icons (decorative, 2.9:1 on white - decorative only)
+$color-accent-hover: #b45309; // Darker gold for hover states (4.5:1 on white - large text AAA)
+$color-accent-text: #78350f; // Gold for text on white (8.2:1 on white) ✓ AAA
+$color-accent-light: #fef3c7; // Light gold for subtle backgrounds (1.2:1 contrast - background only)
+
+// Text colors (neutral grays, all AAA compliant)
+$color-text: #0a0a0a; // Primary text (19.4:1 on white) ✓ AAA
+$color-text-secondary: #404040; // Secondary text (9.7:1 on white) ✓ AAA
+$color-text-muted: #525252; // Muted text (7.1:1 on white) ✓ AAA
+
+// Background colors
+$color-background: #ffffff; // Pure white
+$color-surface: #fafafa; // Cards, sections
+$color-surface-hover: #f5f5f5; // Hover state
+$color-border: #e5e5e5; // Borders, dividers
+
+// Typography - Font families
+$font-family-heading:
+  'Sora',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  sans-serif;
+$font-family-body:
+  'Plus Jakarta Sans',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  sans-serif;
+$font-family-serif: 'Georgia', serif;
+$font-family-mono: 'Fira Mono', 'Courier New', monospace;
+
+// Typography - Font weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Typography - Letter spacing
+$letter-spacing-tight: -0.5px;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.5px;
+$letter-spacing-wider: 1px;
+
+// 2. Spacing Scale (in px)
+$spacing-1: 4px;
+$spacing-2: 8px;
+$spacing-3: 12px;
+$spacing-4: 16px;
+$spacing-5: 24px;
+$spacing-6: 32px;
+$spacing-7: 48px;
+$spacing-8: 64px;
+
+// ═══════════════════════════════════════════════════════════
+// CSS Variables (for runtime access and dynamic changes)
+// ═══════════════════════════════════════════════════════════
+
+:root {
+  // 1. Color Palette - Black & Gold (WCAG AAA)
+  // Primary (Black) - for text and logo
+  --color-primary: #{$color-primary}; // Main black (19.4:1 on white) ✓ AAA
+  --color-primary-light: #{$color-primary-light}; // Lighter for hover (9.7:1 on white) ✓ AAA
+  --color-primary-dark: #{$color-primary-dark}; // Pure black for emphasis (21:1 on white) ✓ AAA
+
+  // Accent (Gold/Orange) - for UI elements and highlights
+  --color-accent: #{$color-accent}; // Gold - UI buttons, icons (decorative, 2.9:1 on white - decorative only)
+  --color-accent-hover: #{$color-accent-hover}; // Darker gold for hover states (4.5:1 on white - large text AAA)
+  --color-accent-text: #{$color-accent-text}; // Gold for text on white (8.2:1 on white) ✓ AAA
+  --color-accent-light: #{$color-accent-light}; // Light gold for subtle backgrounds (1.2:1 contrast - background only)
+
+  // Text colors (neutral grays, all AAA compliant)
+  --color-text: #{$color-text}; // Primary text (19.4:1 on white) ✓ AAA
+  --color-text-secondary: #{$color-text-secondary}; // Secondary text (9.7:1 on white) ✓ AAA
+  --color-text-muted: #{$color-text-muted}; // Muted text (7.1:1 on white) ✓ AAA
 
   // Background colors
-  --color-background: #ffffff;
-  --color-surface: #f8fafc; // Slate 50 - tło dla kart, sekcji
-  --color-surface-hover: #f1f5f9; // Slate 100 - hover state
-  --color-border: #e2e8f0; // Slate 200 - obramowania
+  --color-background: #{$color-background}; // Pure white
+  --color-surface: #{$color-surface}; // Cards, sections
+  --color-surface-hover: #{$color-surface-hover}; // Hover state
+  --color-border: #{$color-border}; // Borders, dividers
 
   // 2. Typography
-  --font-family-sans:
-    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
-  --font-family-serif: 'Georgia', serif;
-  --font-family-mono: 'Fira Mono', 'Courier New', monospace;
+  // Sora for headings and logo (display font)
+  --font-family-heading: #{$font-family-heading};
+  // Plus Jakarta Sans for body text and buttons (readable font)
+  --font-family-body: #{$font-family-body};
+  // Legacy fallback
+  --font-family-sans: var(--font-family-body);
+  --font-family-serif: #{$font-family-serif};
+  --font-family-mono: #{$font-family-mono};
 
   // Font weights
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  --font-weight-light: #{$font-weight-light};
+  --font-weight-normal: #{$font-weight-normal};
+  --font-weight-medium: #{$font-weight-medium};
+  --font-weight-semibold: #{$font-weight-semibold};
+  --font-weight-bold: #{$font-weight-bold};
+
+  // Letter spacing
+  --letter-spacing-tight: #{$letter-spacing-tight};
+  --letter-spacing-normal: #{$letter-spacing-normal};
+  --letter-spacing-wide: #{$letter-spacing-wide};
+  --letter-spacing-wider: #{$letter-spacing-wider};
 
   // Font sizes (mobile-first, Perfect Fourth scale)
   --font-size-base: 16px;
@@ -49,44 +132,45 @@
   --line-height-base: var(--line-height-relaxed);
 
   // 3. Spacing Scale (in px)
-  --spacing-1: 4px;
-  --spacing-2: 8px;
-  --spacing-3: 12px;
-  --spacing-4: 16px;
-  --spacing-5: 24px;
-  --spacing-6: 32px;
-  --spacing-7: 48px;
-  --spacing-8: 64px;
+  --spacing-1: #{$spacing-1};
+  --spacing-2: #{$spacing-2};
+  --spacing-3: #{$spacing-3};
+  --spacing-4: #{$spacing-4};
+  --spacing-5: #{$spacing-5};
+  --spacing-6: #{$spacing-6};
+  --spacing-7: #{$spacing-7};
+  --spacing-8: #{$spacing-8};
 
   // 4. Other UI values
   --border-radius: 8px;
-  --box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --transition-duration: 200ms;
 }
 
 // SASS map for colors (useful for mixins/functions)
+// Uses SASS variables so they work with SASS functions like darken(), lighten(), etc.
 $colors: (
   'primary': (
-    'base': var(--color-primary),
-    'light': var(--color-primary-light),
-    'dark': var(--color-primary-dark),
+    'base': $color-primary,
+    'light': $color-primary-light,
+    'dark': $color-primary-dark,
   ),
   'accent': (
-    'base': var(--color-accent),
-    'light': var(--color-accent-light),
-    'dark': var(--color-accent-dark),
+    'base': $color-accent,
+    'hover': $color-accent-hover,
+    'text': $color-accent-text,
+    'light': $color-accent-light,
   ),
   'text': (
-    'base': var(--color-text),
-    'secondary': var(--color-text-secondary),
-    'muted': var(--color-text-muted),
+    'base': $color-text,
+    'secondary': $color-text-secondary,
+    'muted': $color-text-muted,
   ),
-  'background': var(--color-background),
+  'background': $color-background,
   'surface': (
-    'base': var(--color-surface),
-    'hover': var(--color-surface-hover),
+    'base': $color-surface,
+    'hover': $color-surface-hover,
   ),
-  'border': var(--color-border),
+  'border': $color-border,
 );
 
 // Breakpoints map for SASS mixins
