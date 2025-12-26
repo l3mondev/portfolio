@@ -1,0 +1,51 @@
+@use '../abstracts/variables' as *;
+
+// Generic button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-3 $spacing-6;
+  border: 1px solid transparent;
+  font-family: $font-family-body;
+  font-weight: $font-weight-medium;
+  font-size: var(--font-size-sm);
+  line-height: 1;
+  cursor: pointer;
+  height: 48px;
+  text-decoration: none;
+  transition:
+    background-color var(--transition-duration),
+    color var(--transition-duration),
+    border-color var(--transition-duration),
+    box-shadow var(--transition-duration),
+    transform var(--transition-duration);
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.btn--primary {
+  background-color: $color-accent;
+  color: $color-accent-text;
+  box-shadow: var(--box-shadow);
+}
+
+.btn--primary:hover {
+  background-color: $color-accent-hover;
+  color: $color-background; // Biały tekst na ciemniejszym tle dla lepszego kontrastu
+}
+
+.btn--secondary {
+  background-color: transparent;
+  color: $color-background;
+  border-color: $color-background;
+}
+
+a.btn--secondary:hover,
+button.btn--secondary:hover {
+  background-color: rgba($color-accent, 0.1);
+  color: $color-background; // Biały tekst zachowany w hover
+  text-decoration: none; // Nadpisuje styl z typography
+}

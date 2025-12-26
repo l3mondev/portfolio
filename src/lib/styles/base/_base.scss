@@ -14,10 +14,9 @@ html {
 }
 
 body {
-  font-family: var(--font-family-sans);
+  font-family: var(--font-family-body);
   font-weight: var(--font-weight-normal);
   color: var(--color-text);
-  background-color: var(--color-background);
   line-height: var(--line-height-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
